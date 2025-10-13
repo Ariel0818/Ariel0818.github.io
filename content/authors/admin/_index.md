@@ -124,8 +124,8 @@ skills:
 languages:
   - name: English
     percent: 100
-  - name: Spanish
-    percent: 50
+  - name: Chinese
+    percent: 100
 
 # Awards.
 #   Add/remove as many awards below as you like.
@@ -155,4 +155,4 @@ awards:
       Recognized for contributions to scaling laws in deep learning.
 ---
 
-Alex Johnson is a Senior AI Research Scientist at Meta AI, where he leads groundbreaking work on large language models and multimodal systems. His research has been published in top conferences like NeurIPS and ICML, with over 10,000 citations. Alex is passionate about pushing the boundaries of AI while ensuring ethical development. Outside of work, he enjoys hiking in the Rockies, building custom PCs, and mentoring the next generation of AI talent.
+Hi! I am Shiyu (Ariel) Liu, a PhD student in Agricultural and Biological Engineering at University of Florida. My research has been published in top journal like Electronics and Computer in Agriculture. My research focus on computer vision, especially 2D/3D object detection and tracking, AI-driven robotics, and ML/DL models. Outside of work, I enjoys traveling, discovering national parks, enjoying food, and working out.
