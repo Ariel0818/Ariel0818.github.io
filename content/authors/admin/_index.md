@@ -1,20 +1,20 @@
 ---
 # Display name
-title: Alex Johnson
+title: Shiyu (Ariel) Liu
 
 # Name pronunciation (optional)
 name_pronunciation: ''
 
 # Full name (for SEO)
-first_name: Alex
-last_name: Johnson
+first_name: Shiyu (Ariel)
+last_name: Liu
 
 # Pronouns (optional)
-pronouns: he/him
+pronouns: she/her
 
 # Status emoji
 status:
-  icon: 🚀
+  icon: 🐟
 
 # Is this the primary user of the site?
 superuser: true
@@ -23,62 +23,58 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Senior AI Research Scientist
+role: PhD student 
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: University of Florida
+    url: https://www.ufl.edu
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:alex.johnson@meta.com'
+    url: 'mailto:shiyu.liu@ufl.edu'
     label: E-mail Me
-  - icon: brands/x
-    url: https://twitter.com/AlexAIResearch
+  - icon: brands/instagram
+    url: https://www.instagram.com/ariellsyy/
   - icon: brands/github
-    url: https://github.com/alexjohnsonai
+    url: https://github.com/Ariel0818
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/alexjohnsonai/
+    url: https://www.linkedin.com/in/shiyu-liu-8b2902263/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=alexjohnson
+    url: https://scholar.google.com/citations?user=AAHHmDwAAAAJ&hl=zh-CN
   - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://orcid.org/my-orcid?orcid=0009-0009-3396-5224
 
 interests:
   - Large Language Models
   - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Precision Agriculture
+
 
 education:
-  - area: PhD Computer Science (AI Focus)
-    institution: Stanford University
-    date_start: 2015-09-01
-    date_end: 2019-06-30
+  - area: PhD Agricultural and Biological Engineering (AI Focus)
+    institution: University of Florida
+    date_start: 2024-05-15
+    date_end: 2027-06-30
     summary: |
-      Thesis on _Scaling Laws for Neural Language Models_. Supervised by Prof. Andrew Ng. Published 5 papers in NeurIPS and ICML, with 2 best paper awards.
+      Thesis on AI-Driven Crop Monitoring and Yield Prediction for Specialty Crops. Supervised by Prof. Yiannis Ampatzidis. 
     button:
       text: 'Read Thesis'
       url: 'https://example.com/thesis.pdf'
-  - area: MS Computer Science
-    institution: Carnegie Mellon University
-    date_start: 2013-09-01
-    date_end: 2015-05-31
+  - area: MS Electrical and Computer Engineering
+    institution: University of Florida
+    date_start: 2022-08-15
+    date_end: 2024-05-01
     summary: |
-      GPA: 4.0/4.0
-
-      Specialized in machine learning and robotics.
+      Specialized in machine learning and digital signal processing.
   - area: BS Computer Science
-    institution: MIT
-    date_start: 2009-09-01
-    date_end: 2013-05-31
+    institution: Xidian University
+    date_start: 2018-09-01
+    date_end: 2022-05-01
     summary: |
-      GPA: 3.9/4.0
-
-      Minored in Mathematics. President of AI Club.
+      Specialized in Cyberspace security
 
 work:
   - position: Senior AI Research Scientist
@@ -89,14 +85,7 @@ work:
     date_end: ''
     summary: |2-
       Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
-  - position: AI Research Intern
-    company_name: OpenAI
-    company_url: 'https://openai.com/'
-    company_logo: ''
-    date_start: 2019-06-01
-    date_end: 2019-12-31
-    summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+  
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
