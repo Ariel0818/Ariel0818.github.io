@@ -77,7 +77,7 @@ education:
       Specialized in Cyberspace security
 
 work:
-  - position: Senior AI Research Scientist
+  - position: System Software Engineer Internship
     company_name: Huaqin Technology
     company_url: ''
     company_logo: ''
