@@ -77,7 +77,7 @@ education:
       Specialized in Cyberspace security
 
 work:
-  - position: System Software Engineer Internship
+  - position: System Software Engineer Intern
     company_name: Huaqin Technology
     company_url: ''
     company_logo: ''
