@@ -23,7 +23,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: PhD student 
+role: PhD candidate 
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -78,13 +78,16 @@ education:
 
 work:
   - position: Senior AI Research Scientist
-    company_name: Meta AI
-    company_url: 'https://ai.meta.com/'
+    company_name: Huaqin Technology
+    company_url: 
     company_logo: ''
-    date_start: 2020-01-01
-    date_end: ''
+    date_start: 2021-06-01
+    date_end: 2021-09-01
     summary: |2-
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models. 50+ citations in 3 years.
+    - Designed and executed automated test cases for Android system features using Python scripts and internal testing frameworks, reducing manual testing workload by 40%.\\
+    - Acted as liaison, managing cross-functional communications between 15 developers at a major software client and an internal team of 20 QA engineers, ensuring smooth flow of information and timely resolution of testing issues. \\
+    - Created weekly testing plans by balancing client priorities with internal resourcing constraints, achieving 100% on-time test execution and consistently meeting customer quality expectations.
+
   
 
 # Skills
@@ -155,4 +158,4 @@ awards:
       Recognized for contributions to scaling laws in deep learning.
 ---
 
-Hi! I am Shiyu (Ariel) Liu, a PhD student in Agricultural and Biological Engineering at University of Florida. My research has been published in top journal like Electronics and Computer in Agriculture. My research focus on computer vision, especially 2D/3D object detection and tracking, AI-driven robotics, and ML/DL models. Outside of work, I enjoys traveling, discovering national parks, enjoying food, and working out.
+Hi! I am Shiyu (Ariel) Liu, a PhD candidate in Agricultural and Biological Engineering at University of Florida. My research has been published in top journal like Electronics and Computer in Agriculture. My research focus on computer vision, especially 2D/3D object detection and tracking, AI-driven robotics, ML/DL models, and time serial prediction. Outside of work, I enjoy traveling, discovering national parks, enjoying food, and working out.
