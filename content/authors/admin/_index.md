@@ -83,7 +83,7 @@ work:
     company_logo: ''
     date_start: 2021-06-01
     date_end: 2021-09-01
-    summary: |2-
+    summary: |
     - Designed and executed automated test cases for Android system features using Python scripts and internal testing frameworks, reducing manual testing workload by 40%.\\
     - Acted as liaison, managing cross-functional communications between 15 developers at a major software client and an internal team of 20 QA engineers, ensuring smooth flow of information and timely resolution of testing issues. \\
     - Created weekly testing plans by balancing client priorities with internal resourcing constraints, achieving 100% on-time test execution and consistently meeting customer quality expectations.
