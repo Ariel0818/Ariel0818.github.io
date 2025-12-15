@@ -6,7 +6,7 @@ date: 2025-11-10
 # Featured image
 # Place an image named `featured.jpg/png` in this page's folder and customize its options here.
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
+  caption: 'defence ppt'
 
 authors:
   - admin
