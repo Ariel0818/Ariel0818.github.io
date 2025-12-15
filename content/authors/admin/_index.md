@@ -79,7 +79,7 @@ education:
 work:
   - position: Senior AI Research Scientist
     company_name: Huaqin Technology
-    company_url: 
+    company_url: ''
     company_logo: ''
     date_start: 2021-06-01
     date_end: 2021-09-01
