@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiyu (Ariel) Liu</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ocean:#2a7bbf;--ocean-d:#1a5a96;--ocean-l:#5fa8d9;
+  --foam:#f2f8fd;--sky:#e4f2fb;--white:#fff;
+  --text:#1a2940;--muted:#5a7a9a;--border:rgba(42,123,191,0.13);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:#fff;color:var(--text);line-height:1.7;overflow-x:hidden}
+
+/* ── FIXED NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 3.5rem;
+  background:rgba(255,255,255,0.94);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--ocean-d);text-decoration:none}
+.nav-center{display:flex;gap:2rem;list-style:none}
+.nav-center a{font-size:0.75rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-center a:hover{color:var(--ocean)}
+.nav-icons{display:flex;gap:0.6rem;align-items:center}
+.nav-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--border);color:var(--muted);
+  text-decoration:none;transition:all 0.2s;
+}
+.nav-icon:hover{border-color:var(--ocean);color:var(--ocean);background:var(--sky)}
+.nav-icon svg{width:15px;height:15px;fill:currentColor}
+
+/* ── HERO ── */
+#hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background:url('_DSC5392.jpg') center/cover no-repeat}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,22,48,0.78) 0%,rgba(8,22,48,0.1) 55%,transparent 100%)}
+.hero-c{position:relative;z-index:2;padding:0 4.5rem 4.5rem;animation:fup 0.9s ease both}
+.hero-eye{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(190,225,255,0.8);margin-bottom:0.9rem}
+.hero-name{font-family:var(--serif);font-size:clamp(3.5rem,7.5vw,6rem);font-weight:300;color:#fff;line-height:0.95;margin-bottom:1.1rem}
+.hero-name em{font-style:italic;color:rgba(150,210,255,0.95)}
+.hero-tagline{font-size:1rem;font-weight:300;color:rgba(200,230,255,0.85);max-width:460px;margin-bottom:2rem}
+.hero-cta{display:flex;gap:0.85rem}
+.btn{display:inline-block;text-decoration:none;padding:0.65rem 1.6rem;font-size:0.8rem;letter-spacing:0.05em;font-weight:400;transition:all 0.2s;border-radius:2px}
+.btn-w{background:#fff;color:var(--ocean-d)}.btn-w:hover{background:var(--sky)}
+.btn-ol{border:1px solid rgba(255,255,255,0.45);color:rgba(255,255,255,0.88)}.btn-ol:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,0.1)}
+.scroll-hint{position:absolute;bottom:1.8rem;right:3.5rem;z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.4rem}
+.scroll-hint span{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(200,230,255,0.5)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(200,230,255,0.5),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:0.3;transform:scaleY(0.5)}}
+@keyframes fup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTIONS ── */
+section{padding:5rem 4.5rem}
+.stag{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ocean-l);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.55rem}
+.stag::before{content:'';display:block;width:14px;height:1px;background:var(--ocean-l)}
+h2{font-family:var(--serif);font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:300;color:var(--text);margin-bottom:2.5rem;line-height:1.1}
+h2 em{font-style:italic;color:var(--ocean)}
+
+/* ── ABOUT ── */
+#about{background:var(--foam)}
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:start}
+.about-bio p{color:var(--muted);margin-bottom:1rem;font-size:0.94rem;font-weight:300}
+.about-hobbies{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--border);color:var(--muted);font-size:0.88rem;font-weight:300;font-style:italic}
+.skills h4{font-family:var(--mono);font-size:0.67rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ocean);margin-bottom:0.55rem}
+.skill-row{margin-bottom:1.2rem}
+.pills{display:flex;flex-wrap:wrap;gap:0.32rem}
+.pill{font-size:0.72rem;padding:0.2rem 0.6rem;border:1px solid var(--border);color:var(--muted);border-radius:20px;background:#fff}
+
+/* ── EXPERIENCE ── */
+#experience{background:#fff}
+.exp-list{display:flex;flex-direction:column;gap:1.2rem}
+.exp-card{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:1.5rem 1.6rem;background:var(--foam);border:1px solid var(--border);border-radius:8px}
+.exp-meta{font-family:var(--mono);font-size:0.68rem;color:var(--muted);line-height:1.7}
+.exp-title{font-weight:500;color:var(--text);font-size:0.95rem;margin-bottom:0.15rem}
+.exp-company{font-size:0.82rem;color:var(--ocean);margin-bottom:0.5rem}
+.exp-bullets{list-style:none;padding:0}
+.exp-bullets li{font-size:0.83rem;color:var(--muted);font-weight:300;padding-left:1rem;position:relative;margin-bottom:0.3rem;line-height:1.55}
+.exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--ocean-l)}
+
+/* ── EDUCATION ── */
+#education{background:var(--foam)}
+.edu-list{display:flex;flex-direction:column;gap:0.9rem}
+.edu-card{display:grid;grid-template-columns:130px 1fr;gap:2rem;padding:1.2rem 1.6rem;background:#fff;border:1px solid var(--border);border-radius:8px}
+.edu-yr{font-family:var(--mono);font-size:0.67rem;color:var(--muted);line-height:1.7}
+.edu-school{font-weight:500;color:var(--text);font-size:0.93rem;margin-bottom:0.12rem}
+.edu-deg{font-size:0.8rem;color:var(--muted);font-weight:300}
+.edu-gpa{font-family:var(--mono);font-size:0.68rem;color:var(--ocean);margin-top:0.25rem}
+
+/* ── RESEARCH CARDS ── */
+#research{background:#fff}
+.rcards{display:flex;flex-direction:column;gap:1rem}
+.rcard{
+  background:var(--foam);border:1px solid var(--border);border-left:3px solid transparent;border-radius:10px;
+  padding:1.5rem 2rem;cursor:pointer;transition:all 0.22s;
+  display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;
+  column-gap:2rem;row-gap:0.65rem;align-items:start;
+}
+.rcard:hover{border-color:var(--ocean-l);border-left-color:var(--ocean);box-shadow:0 4px 20px rgba(42,123,191,0.08);background:#fff}
+.rcard-top{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:0.35rem}
+.rtitle{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--text);line-height:1.3}
+.rtagline{font-size:0.83rem;color:var(--muted);font-weight:300;line-height:1.55}
+.rcard-meta{grid-column:2;grid-row:1;display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;flex-shrink:0}
+.rdate{font-family:var(--mono);font-size:0.65rem;color:var(--muted);white-space:nowrap}
+.rcard-arrow{font-size:0.68rem;color:var(--ocean-l);font-family:var(--mono);opacity:0;transition:opacity 0.2s;white-space:nowrap}
+.rcard:hover .rcard-arrow{opacity:1}
+.rtags{grid-column:1;grid-row:2;display:flex;flex-wrap:wrap;gap:0.32rem}
+.rtag{font-family:var(--mono);font-size:0.64rem;padding:0.16rem 0.52rem;border:1px solid var(--border);color:var(--muted);border-radius:20px;background:#fff}
+.rcard-links{grid-column:1/3;grid-row:3;display:flex;flex-wrap:wrap;gap:0.4rem;padding-top:0.8rem;border-top:1px solid var(--border)}
+.rlink{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  font-family:var(--mono);font-size:0.65rem;padding:0.2rem 0.6rem;
+  border-radius:3px;text-decoration:none;transition:all 0.18s;
+  border:1px solid var(--border);color:var(--muted);background:#fff;
+}
+.rlink:hover{border-color:var(--ocean);color:var(--ocean);background:var(--sky)}
+.rlink svg{width:10px;height:10px;fill:currentColor;flex-shrink:0}
+.rlink.paper{border-color:rgba(42,123,191,0.25);color:var(--ocean-d);background:rgba(42,123,191,0.06)}
+.rlink.paper:hover{background:rgba(42,123,191,0.14)}
+
+/* ── RESEARCH MODAL ── */
+#rmodal{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(8,22,48,0.7);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:2rem;
+}
+#rmodal.open{display:flex}
+.rmodal-box{
+  background:#fff;border-radius:12px;max-width:860px;width:100%;
+  max-height:88vh;overflow-y:auto;position:relative;
+  box-shadow:0 24px 80px rgba(8,22,48,0.3);
+}
+.rmodal-close{
+  position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;
+  padding:1rem 1.2rem 0;background:#fff;
+}
+.rmodal-close button{
+  background:none;border:1px solid var(--border);border-radius:50%;
+  width:30px;height:30px;cursor:pointer;color:var(--muted);font-size:1rem;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s;
+}
+.rmodal-close button:hover{border-color:var(--ocean);color:var(--ocean)}
+.rmodal-body{padding:0 2.2rem 2.2rem}
+.rmodal-title{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--text);line-height:1.2;margin-bottom:0.4rem}
+.rmodal-date{font-family:var(--mono);font-size:0.68rem;color:var(--muted);margin-bottom:1rem}
+.rmodal-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.4rem}
+.rmodal-desc{font-size:0.9rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:1.8rem}
+.rmodal-section-title{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ocean);margin-bottom:0.9rem}
+.rmodal-imgs{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.8rem}
+.rmodal-imgs.single{grid-template-columns:1fr}
+.rmodal-img{width:100%;border-radius:6px;border:1px solid var(--border);display:block}
+.rmodal-img-caption{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.3rem;font-style:italic}
+.rmodal-results{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.8rem}
+.rresult{background:var(--foam);border:1px solid var(--border);border-radius:8px;padding:1rem;text-align:center}
+.rresult-num{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--ocean);display:block;line-height:1}
+.rresult-lbl{font-size:0.72rem;color:var(--muted);margin-top:0.3rem;line-height:1.4}
+.rmodal-links{display:flex;flex-wrap:wrap;gap:0.5rem}
+.rmodal-link{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-family:var(--mono);font-size:0.72rem;padding:0.4rem 0.9rem;
+  border-radius:4px;text-decoration:none;transition:all 0.18s;
+  border:1px solid var(--border);color:var(--muted);background:var(--foam);
+}
+.rmodal-link:hover{border-color:var(--ocean);color:var(--ocean);background:var(--sky)}
+.rmodal-link svg{width:12px;height:12px;fill:currentColor;flex-shrink:0}
+.rmodal-link.paper{border-color:rgba(42,123,191,0.3);color:var(--ocean-d);background:rgba(42,123,191,0.07)}
+.rmodal-link.paper:hover{background:rgba(42,123,191,0.15)}
+@media(max-width:900px){
+  .rcards{grid-template-columns:1fr}
+  .rmodal-imgs{grid-template-columns:1fr}
+  .rmodal-results{grid-template-columns:repeat(2,1fr)}
+  .rmodal-body{padding:0 1.2rem 1.5rem}
+}
+
+/* ── PUBLICATIONS ── */
+#publications{background:var(--foam)}
+.pubs{display:flex;flex-direction:column;gap:1rem}
+.pcard{
+  padding:1.3rem 1.5rem;border:1px solid var(--border);border-radius:8px;
+  background:#fff;text-decoration:none;display:block;
+  transition:background 0.2s,border-color 0.2s;
+}
+.pcard:hover{background:var(--sky);border-color:var(--ocean-l)}
+.ptitle{font-size:0.92rem;font-weight:500;color:var(--text);margin-bottom:0.28rem;line-height:1.45}
+.pauth{font-size:0.77rem;color:var(--muted);margin-bottom:0.45rem}
+.pbadge{display:inline-flex;align-items:center;gap:0.3rem;font-family:var(--mono);font-size:0.66rem;padding:0.18rem 0.6rem;border-radius:20px;background:rgba(42,123,191,0.08);color:var(--ocean-d);border:1px solid rgba(42,123,191,0.18)}
+.pbadge.oral{background:rgba(26,90,150,0.1);color:#1a3d6b;border-color:rgba(26,90,150,0.22)}
+.pcard-ext{margin-top:0.5rem;font-family:var(--mono);font-size:0.65rem;color:var(--ocean-l)}
+
+/* ── PHOTOGRAPHY ── */
+#photography{background:#fff}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.photo-card{
+  position:relative;overflow:hidden;border-radius:10px;
+  aspect-ratio:3/4;cursor:pointer;background:var(--sky);
+  border:1px solid var(--border);
+}
+.photo-card-imgs{position:absolute;inset:0}
+.photo-card-imgs img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:0;transition:opacity 0.7s ease;
+}
+.photo-card-imgs img.active{opacity:1}
+.photo-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,22,48,0.7) 0%,transparent 50%);
+  opacity:0;transition:opacity 0.3s;
+}
+.photo-card:hover .photo-card-overlay{opacity:1}
+.photo-card-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.1rem 1.1rem 1.4rem;
+  transform:translateY(6px);transition:transform 0.3s,opacity 0.3s;opacity:0;
+}
+.photo-card:hover .photo-card-info{opacity:1;transform:translateY(0)}
+.photo-card-loc{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(200,230,255,0.95);margin-bottom:0.2rem}
+.photo-card-count{font-size:0.75rem;color:rgba(255,255,255,0.7);font-weight:300}
+.photo-card-dots{
+  position:absolute;bottom:0.65rem;left:50%;transform:translateX(-50%);
+  display:flex;gap:0.32rem;opacity:0;transition:opacity 0.3s;
+}
+.photo-card:hover .photo-card-dots{opacity:1}
+.pdot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.35);transition:background 0.3s;flex-shrink:0}
+.pdot.active{background:#fff}
+
+/* LIGHTBOX */
+#lb{display:none;position:fixed;inset:0;z-index:1000;background:rgba(5,14,32,0.96);align-items:center;justify-content:center}
+#lb.open{display:flex}
+#lb img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
+#lbx{position:absolute;top:1.4rem;right:1.8rem;font-size:1.3rem;color:rgba(255,255,255,0.6);cursor:pointer;background:none;border:none;line-height:1}
+#lbinfo{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);text-align:center;white-space:nowrap}
+#lbloc{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.11em;text-transform:uppercase;color:rgba(150,210,255,0.8)}
+#lbcap{font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:0.18rem}
+
+/* ── CONTACT ── */
+#contact{background:var(--ocean-d)}
+#contact .stag{color:rgba(160,210,255,0.6)}
+#contact .stag::before{background:rgba(160,210,255,0.4)}
+#contact h2{color:#fff}
+.clinks{display:flex;flex-direction:column;gap:0.7rem;max-width:420px}
+.clink{display:flex;align-items:center;gap:0.9rem;padding:0.9rem 1.2rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:6px;text-decoration:none;color:rgba(200,230,255,0.85);font-size:0.85rem;transition:all 0.2s}
+.clink:hover{background:rgba(255,255,255,0.12);border-color:rgba(200,230,255,0.3);color:#fff}
+.ci{font-family:var(--mono);font-size:0.68rem;color:rgba(150,210,255,0.65);min-width:16px}
+footer{background:var(--ocean-d);border-top:1px solid rgba(255,255,255,0.07);padding:1.3rem 4.5rem;display:flex;justify-content:space-between;align-items:center}
+footer p{font-family:var(--mono);font-size:0.65rem;color:rgba(150,210,255,0.4)}
+
+/* REVEAL */
+.rev{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.rev.vis{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:0.9rem 1.5rem}
+  .nav-center{display:none}
+  section{padding:3.5rem 1.5rem}
+  .hero-c{padding:0 1.5rem 3rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .exp-card,.edu-card{grid-template-columns:1fr;gap:0.3rem}
+  .slider-wrap{margin:0 -1.5rem}
+  .slide{flex:0 0 80vw;height:300px}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  footer{flex-direction:column;gap:0.4rem;padding:1.2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Shiyu Ariel Liu</a>
+  <ul class="nav-center">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#photography">Photography</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <!-- GitHub -->
+    <a href="https://github.com/" target="_blank" class="nav-icon" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/shiyu-liu-8b2902263/" target="_blank" class="nav-icon" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="hero-eye">PhD Researcher · University of Florida</div>
+    <h1 class="hero-name">Shiyu <em>Ariel</em> Liu</h1>
+    <p class="hero-tagline">Computer vision researcher, traveler, and photographer — building AI systems that see the world.</p>
+    <div class="hero-cta">
+      <a href="mailto:ariel2023liu@gmail.com" class="btn btn-w">Get in touch</a>
+      <a href="#research" class="btn btn-ol">View research</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="rev"><div class="stag">About</div><h2>Researcher &amp; <em>engineer.</em></h2></div>
+  <div class="about-grid rev">
+    <div class="about-bio">
+      <p>I'm a PhD candidate in Agricultural and Biological Engineering at the University of Florida (advisor: <a href="https://abe.ufl.edu/people/faculty/yiannis-ampatzidis/" target="_blank" style="color:var(--ocean);text-decoration:none;border-bottom:1px solid var(--border)">Prof. Yiannis Ampatzidis</a>), with an MS in Electrical & Computer Engineering from UF and a BS in Computer Science from Xidian University. My work applies deep learning to precision agriculture — spanning transformer-based object detection, multi-object tracking, multimodal fusion, RGB-D/3D sensing, and time series prediction, with a focus on systems that deploy reliably on edge hardware in real field conditions.</p>
+      <p>Outside the lab, I enjoy traveling, hiking, photography, tennis, and working out.</p>
+    </div>
+    <div class="skills">
+      <div class="skill-row"><h4>Languages</h4><div class="pills"><span class="pill">Python</span><span class="pill">Java</span><span class="pill">C</span><span class="pill">SQL</span><span class="pill">MATLAB</span></div></div>
+      <div class="skill-row"><h4>ML / AI</h4><div class="pills"><span class="pill">PyTorch</span><span class="pill">TensorFlow</span><span class="pill">Transformers</span><span class="pill">OpenCV</span><span class="pill">Scikit-learn</span></div></div>
+      <div class="skill-row"><h4>Expertise</h4><div class="pills"><span class="pill">YOLO / RT-DETR</span><span class="pill">PointNet++</span><span class="pill">SLAM</span><span class="pill">SORT Tracking</span><span class="pill">Self-Supervised</span><span class="pill">3D Reconstruction</span><span class="pill">RGB-D Sensing</span><span class="pill">Multimodal Fusion</span></div></div>
+      <div class="skill-row"><h4>Deployment</h4><div class="pills"><span class="pill">NVIDIA Jetson</span><span class="pill">TensorRT</span><span class="pill">Docker</span><span class="pill">AWS</span><span class="pill">ROS</span><span class="pill">Linux</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="rev"><div class="stag">Experience</div><h2>Professional <em>background.</em></h2></div>
+  <div class="exp-list rev">
+    <div class="exp-card">
+      <div class="exp-meta">2024 — Present<br>Immokalee, FL</div>
+      <div>
+        <div class="exp-title">Graduate Research Assistant</div>
+        <div class="exp-company">University of Florida · Precision Agriculture Lab (Advisor: <a href="https://abe.ufl.edu/people/faculty/yiannis-ampatzidis/" target="_blank" style="color:var(--ocean);text-decoration:none;border-bottom:1px solid var(--border)">Prof. Yiannis Ampatzidis</a>)</div>
+        <ul class="exp-bullets">
+          <li>Designed and deployed end-to-end multimodal perception systems combining RGB-D, GPS/IMU, and edge devices for large-scale crop monitoring.</li>
+          <li>Published research on transformer-based object detection, multi-object tracking, and time series yield prediction across multiple crop types.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-meta">2022 — 2024<br>Gainesville, FL</div>
+      <div>
+        <div class="exp-title">Graduate Research Assistant</div>
+        <div class="exp-company">University of Florida · Precision Agriculture Lab (Advisor: <a href="https://abe.ufl.edu/people/faculty/wonsuk-lee/" target="_blank" style="color:var(--ocean);text-decoration:none;border-bottom:1px solid var(--border)">Prof. Won Suk Lee</a>)</div>
+        <ul class="exp-bullets">
+          <li>Developed real-time multi-object tracking pipelines integrating YOLO-based detectors with SORT and ByteTrack for dense agricultural scenes.</li>
+          <li>Explored 3D scene understanding using LiDAR and ROS, building early-stage pipelines for canopy volume estimation from point cloud data.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-meta">Jun – Sep 2021<br>Xi'an, China</div>
+      <div>
+        <div class="exp-title">System Testing Engineer Intern</div>
+        <div class="exp-company">Huaqin Technology</div>
+        <ul class="exp-bullets">
+          <li>Designed and executed automated test cases for Android system features using Python scripts and internal testing frameworks, reducing manual testing workload by 40%.</li>
+          <li>Managed cross-functional communications between 15 developers at a major software client and an internal team of 20 QA engineers, ensuring timely resolution of testing issues.</li>
+          <li>Created weekly testing plans balancing client priorities with internal resourcing, achieving 100% on-time test execution and consistently meeting customer quality expectations.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="rev"><div class="stag">Education</div><h2>Academic <em>path.</em></h2></div>
+  <div class="edu-list rev">
+    <div class="edu-card">
+      <div class="edu-yr">2024 — 2027<br>Immokalee, FL</div>
+      <div>
+        <div class="edu-school">University of Florida</div>
+        <div class="edu-deg">PhD · Agricultural and Biological Engineering, Applied Machine Learning</div>
+
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-yr">2022 — 2024<br>Gainesville, FL</div>
+      <div>
+        <div class="edu-school">University of Florida</div>
+        <div class="edu-deg">MS · Electrical and Computer Engineering</div>
+
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-yr">2018 — 2022<br>Xi'an, China</div>
+      <div>
+        <div class="edu-school">Xidian University</div>
+        <div class="edu-deg">BS · Computer Science</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="rev"><div class="stag">Research &amp; Projects</div><h2>What I <em>build.</em></h2></div>
+  <div class="rcards rev">
+
+
+    <!-- CARD: Agrosense v1 → v2 (PhD, two-paper system) -->
+    <div class="rcard" onclick="openModal('r2')" style="border-left:3px solid var(--ocean)">
+      <div class="rcard-top">
+        <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.45rem">
+          <div class="rtitle" style="margin:0">Agrosense: AI-Enabled Precision Orchard Monitoring System</div>
+          <span style="font-family:var(--mono);font-size:0.6rem;padding:0.18rem 0.55rem;border-radius:20px;background:rgba(42,123,191,0.1);color:var(--ocean-d);border:1px solid rgba(42,123,191,0.22);white-space:nowrap;flex-shrink:0">v1 → v2</span>
+        </div>
+        <p class="rtagline">Vehicle-mounted multi-sensor AI system for real-time object detection, 3D localization, sequence classification, and geo-referenced aggregation at scale — deployed across 3,696 objects in 3 real-world sites. 515% faster than manual baselines. Two peer-reviewed publications.</p>
+      </div>
+      <div class="rcard-meta">
+        <div class="rdate">2024 — 2026</div>
+        <div class="rcard-arrow">View details →</div>
+      </div>
+      <div class="rtags">
+        <span class="rtag">YOLOv11n</span><span class="rtag">RT-DETR</span><span class="rtag">RGB-D</span><span class="rtag">Sensor Fusion</span><span class="rtag">GPS/IMU</span><span class="rtag">Temporal Tracking</span><span class="rtag">Edge AI (Jetson)</span><span class="rtag">Geo-Visualization</span>
+      </div>
+      <div class="rcard-links" onclick="event.stopPropagation()">
+        <a href="https://doi.org/10.1007/s11119-025-10268-8" target="_blank" class="rlink paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Agrosense v1 · Precision Agriculture 2025</a>
+        <a href="https://doi.org/10.1016/j.compag.2026.111797" target="_blank" class="rlink paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Agrosense v2 · CEA 2026</a>
+        <a href="https://github.com/Ariel0818/Agrosensev1-v2" target="_blank" class="rlink"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+
+        <a href="https://www.linkedin.com/posts/yiannis-ampatzidis-b63b4130_see-our-ai-enabled-agrosense-system-in-action-activity-7399586259934842880-LEhL/" target="_blank" class="rlink">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>Video
+        </a>
+      </div>
+    </div>
+
+    
+
+    <!-- CARD 3: Strawberry Yield Prediction (CEA 2025, published) -->
+    <div class="rcard" onclick="openModal('r3')">
+      <div class="rcard-top">
+        <div class="rtitle">AI-Driven Yield Forecasting Pipeline: Real-Time Vision + Multivariate Time Series</div>
+        <p class="rtagline">End-to-end ML system on edge hardware — YOLOv8n at 52 FPS for automated fruit counting, feeding a rigorous benchmark of 6 models (MLR, VAR, GBM, RF, LSTM, TCN) for weekly yield prediction. Best model achieved R²=0.908. Published in Computers and Electronics in Agriculture, 2025.</p>
+      </div>
+      <div class="rcard-meta">
+        <div class="rdate">2024 — 2025</div>
+        <div class="rcard-arrow">View details →</div>
+      </div>
+      <div class="rtags">
+        <span class="rtag">YOLOv8</span><span class="rtag">Time Series prediction</span><span class="rtag">LSTM</span><span class="rtag">GBM</span><span class="rtag">Feature Selection</span><span class="rtag">Edge AI</span>
+      </div>
+      <div class="rcard-links" onclick="event.stopPropagation()">
+        <a href="https://doi.org/10.1016/j.compag.2025.110212" target="_blank" class="rlink paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>CEA 2025 </a>
+      </div>
+    </div>
+
+    <!-- CARD 2: LiDAR Canopy Volume (MS) -->
+    <div class="rcard" onclick="openModal('r4')">
+      <div class="rcard-top">
+        <div class="rtitle">LiDAR-Based Strawberry Canopy Volume Estimation</div>
+        <p class="rtagline">Built a multi-modal sensing pipeline using a Hokuyo UTM-30LX 2D LiDAR and RGB-D depth camera with ROS 2, combining SLAM-based 3D mapping (Cartographer) with OpenCV edge detection and polygon segmentation to quantify greenhouse strawberry canopy geometry.</p>
+      </div>
+      <div class="rcard-meta">
+        <div class="rdate">2023 — 2024</div>
+        <div class="rcard-arrow">View details →</div>
+      </div>
+      <div class="rtags">
+        <span class="rtag">LiDAR</span><span class="rtag">ROS 2</span><span class="rtag">SLAM</span><span class="rtag">OpenCV</span><span class="rtag">Python</span><span class="rtag">C++</span><span class="rtag">Sensor Fusion</span>
+      </div>
+      <div class="rcard-links" onclick="event.stopPropagation()">
+        <a href="https://github.com/Ariel0818/lidar-canopy-volume-ros2" target="_blank" class="rlink"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+      </div>
+    </div>
+
+
+    <!-- CARD 1: Strawberry Detection & Tracking (MS) -->
+    <div class="rcard" onclick="openModal('r1')">
+      <div class="rcard-top">
+        <div class="rtitle">Architecture-Aware Detection Head Pruning &amp; Domain-Informed Multi-Object Tracking</div>
+        <p class="rtagline">Proposed a systematic YOLOv7 head pruning strategy and a physics-informed tracking algorithm (IBTA), replacing Kalman Filter with known camera motion priors — achieving 21.5% FLOPs reduction and outperforming SORT-based baselines by 12.3% MOTA.</p>
+      </div>
+      <div class="rcard-meta">
+        <div class="rdate">2022 — 2024</div>
+        <div class="rcard-arrow">View details →</div>
+      </div>
+      <div class="rtags">
+        <span class="rtag">YOLOv7</span><span class="rtag">Model Pruning</span><span class="rtag">Multi-Object Tracking</span><span class="rtag">PyTorch</span>
+      </div>
+      <div class="rcard-links" onclick="event.stopPropagation()">
+        <a href="https://github.com/Ariel0818/Yolov7-pruning-IBTA" target="_blank" class="rlink"><svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub</a>
+        <a href="https://arxiv.org/abs/2407.12614" target="_blank" class="rlink paper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Preprint</a>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- RESEARCH MODAL -->
+<div id="rmodal" onclick="if(event.target===this)closeModal()">
+  <div class="rmodal-box" id="rmodal-box"></div>
+</div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="rev"><div class="stag">Publications</div><h2>Peer-reviewed <em>work.</em></h2></div>
+  <div class="pubs rev">
+
+    <a href="https://scholar.google.com/" target="_blank" class="pcard">
+      <div class="ptitle">GeoSphere-DETR: Geometry-Aware RT-DETR with Sphere-Consistency Re-scoring for Robust Orchard Fruit Detection</div>
+      <div class="pauth">Liu, S. &amp; Ampatzidis, Y. — 2026</div>
+      <span class="pbadge oral">CVPR 2026 · Oral Presentation ↗</span>
+    </a>
+
+    <a href="https://scholar.google.com/" target="_blank" class="pcard">
+      <div class="ptitle">Agrosense v2: An AI-enabled System for Precision Orchard Sensing and Tree-level Monitoring</div>
+      <div class="pauth">Liu, S., Ampatzidis, Y., Guan, H., Liu, W., Zhou, C., Choi, D. &amp; Lee, W. S. — 2026</div>
+      <span class="pbadge">Computers and Electronics in Agriculture ↗</span>
+    </a>
+
+    <a href="https://doi.org/10.1016/j.compag.2025.110212" target="_blank" class="pcard">
+      <div class="ptitle">AI-driven time series analysis for predicting strawberry weekly yields integrating fruit monitoring and weather data for optimized harvest planning</div>
+      <div class="pauth">Liu, S., Ampatzidis, Y., Zhou, C. &amp; Lee, W. S. — 2025</div>
+      <span class="pbadge">Computers and Electronics in Agriculture, 233, 110212 ↗</span>
+    </a>
+
+    <a href="https://scholar.google.com/" target="_blank" class="pcard">
+      <div class="ptitle">Shaping the Future of Citrus Yield Prediction with Multimodal Data Fusion and Machine Learning: A Systematic Review</div>
+      <div class="pauth">Liu, S. &amp; Ampatzidis, Y. — 2025 (Under Review)</div>
+      <span class="pbadge">Computers and Electronics in Agriculture ↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- PHOTOGRAPHY -->
+<section id="photography">
+  <div class="rev"><div class="stag">Photography</div><h2>Through the <em>lens.</em></h2></div>
+  <div class="photo-grid rev">
+
+    <!-- Kyoto -->
+    <div class="photo-card">
+      <div class="photo-card-imgs">
+        <img src="photos/kyoto/IMG_0225.JPG" class="active" alt="Kyoto 1" loading="lazy">
+        <img src="photos/kyoto/IMG_0238.JPG" alt="Kyoto 2" loading="lazy">
+        <img src="photos/kyoto/IMG_0275.jpg" alt="Kyoto 3" loading="lazy">
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-info">
+        <div class="photo-card-loc">📍 Kyoto, Japan</div>
+        <div class="photo-card-count">3 photos</div>
+      </div>
+      <div class="photo-card-dots">
+        <div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div>
+      </div>
+    </div>
+
+    <!-- Mexico -->
+    <div class="photo-card">
+      <div class="photo-card-imgs">
+        <img src="photos/mexico/IMG_0938.JPG" class="active" alt="Mexico 1" loading="lazy">
+        <img src="photos/mexico/IMG_0915.JPG" alt="Mexico 2" loading="lazy">
+        <img src="photos/mexico/IMG_0942.JPG" alt="Mexico 3" loading="lazy">
+        <img src="photos/mexico/IMG_7869.JPG" alt="Mexico 4" loading="lazy">
+        <img src="photos/mexico/IMG_0761.JPG" alt="Mexico 5" loading="lazy">
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-info">
+        <div class="photo-card-loc">📍 Mexico</div>
+        <div class="photo-card-count">5 photos</div>
+      </div>
+      <div class="photo-card-dots">
+        <div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div>
+      </div>
+    </div>
+
+    <!-- Joshua Tree -->
+    <div class="photo-card">
+      <div class="photo-card-imgs">
+        <img src="photos/joshua_tree/IMG_1348.jpg" class="active" alt="Joshua Tree 1" loading="lazy">
+        <img src="photos/joshua_tree/IMG_1422.JPG" alt="Joshua Tree 2" loading="lazy">
+        <img src="photos/joshua_tree/IMG_1436.JPG" alt="Joshua Tree 3" loading="lazy">
+        <img src="photos/joshua_tree/IMG_1479.JPG" alt="Joshua Tree 4" loading="lazy">
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-info">
+        <div class="photo-card-loc">📍 Joshua Tree NP, California</div>
+        <div class="photo-card-count">4 photos</div>
+      </div>
+      <div class="photo-card-dots">
+        <div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div>
+      </div>
+    </div>
+
+    <!-- Coast & Sea -->
+    <div class="photo-card">
+      <div class="photo-card-imgs">
+        <img src="photos/coast/_DSC5392.jpg" class="active" alt="Coast 1" loading="lazy">
+        <img src="photos/coast/IMG_1669.JPG" alt="Coast 2" loading="lazy">
+        <img src="photos/coast/IMG_2049.JPG" alt="Coast 3" loading="lazy">
+      </div>
+      <div class="photo-card-overlay"></div>
+      <div class="photo-card-info">
+        <div class="photo-card-loc">📍 Coast & Sea</div>
+        <div class="photo-card-count">3 photos</div>
+      </div>
+      <div class="photo-card-dots">
+        <div class="pdot active"></div><div class="pdot"></div><div class="pdot"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="rev"><div class="stag">Contact</div><h2>Let's <em>connect.</em></h2></div>
+  <div class="clinks rev">
+    <a href="mailto:ariel2023liu@gmail.com" class="clink"><span class="ci">@</span>ariel2023liu@gmail.com</a>
+    <a href="tel:+13526650571" class="clink"><span class="ci">#</span>352-665-0571</a>
+    <a href="https://www.linkedin.com/in/shiyu-liu-8b2902263/" target="_blank" class="clink"><span class="ci">in</span>linkedin.com/in/Shiyu(Ariel)Liu</a>
+    <a href="https://github.com/" target="_blank" class="clink"><span class="ci">gh</span>GitHub</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shiyu (Ariel) Liu · University of Florida</p>
+  <p>PhD Researcher · Computer Vision &amp; AI</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lbx" onclick="closeLb()">✕</button>
+  <img id="lbimg" src="" alt="">
+  <div id="lbinfo"><div id="lbloc"></div><div id="lbcap"></div></div>
+</div>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)} });
+},{threshold:0.07});
+document.querySelectorAll('.rev').forEach(el => obs.observe(el));
+
+// ── RESEARCH MODAL DATA ──
+const GH = `<svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+const DOC = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+const VID = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+const DAT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`;
+
+const modals = {
+  r4: {
+    title: 'LiDAR-Based Strawberry Canopy Volume Estimation',
+    date: '2023 — 2024 · University of Florida · Precision Agriculture Lab',
+    tags: ['LiDAR', 'ROS 2', 'SLAM', 'OpenCV', 'Python', 'C++', 'Sensor Fusion', 'Cartographer', 'Hokuyo UTM-30LX'],
+    desc: `Built an early-stage multi-modal sensing pipeline to estimate greenhouse strawberry canopy volume — a key proxy for plant health, biomass, and growth stage in precision agriculture.<br><br>Integrated a Hokuyo UTM-30LX 2D LiDAR with ROS 2 via the <code>urg_node2</code> driver, capturing 270° scans at 40 Hz. Set up and evaluated two SLAM approaches for 3D spatial mapping: <strong>Cartographer</strong> (achieved lab-scale occupancy maps) and <strong>Rtabmap</strong> (experimental). Investigated converting rosbag2 recordings to point cloud formats compatible with CloudCompare for full 3D visualization.<br><br>In parallel, developed a computer vision pipeline on RGB-D depth camera data: fused paired depth and height arrays (420×560) in NumPy, applied <strong>Canny edge detection</strong> with Otsu's automatic threshold selection, and computed canopy cross-sectional area from LabelMe polygon annotations using the Shoelace formula. Also built a DJI drone video → frame extraction utility for field-scale analysis.`,
+    imgs: [
+      { src: 'research/strawberry_canopy/original.png', cap: 'Fig. 1 — Orignal strawberry image' },
+      { src: 'research/strawberry_canopy/height_visual.png', cap: 'Fig. 2 — Canopy edge detection result on strawberry RGB-D image' },
+    ],
+    results: [
+      { num: '40Hz', lbl: 'LiDAR scan rate\nHokuyo UTM-30LX' },
+      { num: '270°', lbl: 'Field of view\n2D LiDAR' },
+      { num: '~108K', lbl: 'Canopy cross-section\n(px², sample image)' },
+    ],
+    links: [
+      { href: 'https://github.com/Ariel0818/lidar-canopy-volume-ros2', label: 'GitHub', icon: GH, cls: '' },
+    ]
+  },
+  r1: {
+    title: 'Architecture-Aware Detection Head Pruning & Domain-Informed Multi-Object Tracking',
+    date: '2022 — 2024 · University of Florida',
+    tags: ['YOLOv7', 'Model Pruning', 'Multi-Object Tracking', 'PyTorch', 'Computer Vision'],
+    desc: `Proposed a systematic detection head pruning strategy for YOLOv7 variants, exploiting domain-specific object scale distributions to reduce model complexity without accuracy loss. By analyzing the size distribution of target objects in the dataset, we identified that standard multi-scale detection heads introduced unnecessary redundancy — removing superfluous heads reduced FLOPs by an average of 21.5% while improving both speed and accuracy.<br><br>Designed IBTA (Information-Based Tracking Algorithm), a physics-informed tracking algorithm that replaces the Kalman Filter with a motion model leveraging known camera velocity, direction, and inter-object spatial relationships (location scores). This approach is better suited for constrained robotic platforms where motion parameters are known a priori. IBTA outperformed centroid tracking baselines by 12.3% MOTA and 6.0% MOTP across all object categories.`,
+    imgs: [
+      { src: 'research/strawberry_tracking/fig_arch.png', cap: 'Fig. 1 — YOLOv7-tiny architecture with prunable detection heads (Head 1, 2, 3)' },
+      { src: 'research/strawberry_tracking/fig_ibta.png', cap: 'Fig. 2 — SORT vs. IBTA workflow: replacing Kalman Filter with physics-informed motion priors' },
+      { src: 'research/strawberry_tracking/fig_detection.png', cap: 'Fig. 3 — Detection output comparison: pruned model (b) matches ground truth (g) with fewer false positives' },
+    ],
+    results: [
+      { num: '21.5%', lbl: 'Avg. FLOPs reduction\nfrom head pruning' },
+      { num: '89.1%', lbl: 'Best detection mAP50\n(YOLOv7-tiny, heads 2&3)' },
+      { num: '163.9', lbl: 'FPS (fastest pruned model\nYOLOv7-tiny head 3)' },
+      { num: '+12.3%', lbl: 'MOTA improvement\nIBTA vs. CTA' },
+      { num: '+6.0%', lbl: 'MOTP improvement\nIBTA vs. CTA' },
+      { num: '34 vs 46', lbl: 'ID switches\nIBTA vs. CTA' },
+    ],
+    links: [
+      { href: 'https://github.com/Ariel0818/Yolov7-pruning-IBTA', label: 'GitHub', icon: GH, cls: '' },
+      { href: 'https://arxiv.org/abs/2407.12614', label: 'Preprint', icon: DOC, cls: 'paper' },
+    ]
+  },
+  r2: {
+    title: 'Agrosense: Real-Time Multi-Sensor AI System for Large-Scale Field Deployment',
+    date: '2024 — 2026 · University of Florida · 2 Peer-Reviewed Publications',
+    tags: ['YOLOv8n', 'YOLOv11n', 'RT-DETR', 'RGB-D', 'RTK-GPS / IMU', 'Temporal Tracking', 'Edge AI (Jetson)', 'Geo-Referenced Visualization', 'Sequence Classification', 'Sensor Fusion'],
+    desc: `A field-deployable, vehicle-mounted AI system that replaces manual field surveys with continuous real-time inference across thousands of objects — delivering per-object detection, classification, 3D localization, and geo-referenced aggregation in a single unified pipeline.<br><br>
+
+<strong>v1 — Core System (Precision Agriculture, 2025):</strong> Built the sensing stack from scratch: 4× Intel RealSense D435i RGB-D cameras + Jetson Xavier NX at 18 FPS. Depth-gated background filtering isolates targets at up to 5 m. YOLOv8n detector (mAP@0.5 = 0.977) feeds a custom physics-informed tracker (IBTA) that substitutes the Kalman Filter with vehicle motion priors — achieving <strong>95% tracking accuracy</strong> vs. 29% for ByteTrack. Five 3D height estimation methods benchmarked; best MAPE 8.53%. End-to-end throughput: <strong>398 s vs. 2,446 s manual — 515% faster.</strong><br><br>
+
+<strong>v2 — Production Scale (CEA, 2026):</strong> Full hardware and algorithm refresh targeting 3,696 objects across 3 real-world sites with contrasting conditions. Upgraded to ZED X (1920×1200) + Jetson AGX Orin. New 3-stage bounding box selection filter cuts false positives by ~85% pre-tracking. Temporal tracker introduces cross-frame association via horizontal displacement constraints and a canopy presence signal (non-black pixel ratio), lifting average counting accuracy to <strong>95.49%</strong>. Canopy classification upgraded from single-frame to Gaussian-weighted sequence inference (up to <strong>96.8%</strong>). Added fruit detection module — benchmarked 5 architectures; RT-DETR achieves mAP@0.5 = 0.837 (on-tree) and 0.722 (on-ground). All outputs streamed into an interactive, filterable <strong>geo-referenced dashboard</strong> overlaid on UAV orthomosaics.`,
+    imgs: [
+      { src: 'research/agrosense/v1_system.png', cap: 'Agrosense v1 — RGB-D camera array mounted on sprayer with Jetson Xavier NX processing pipeline.' },
+      { src: 'research/agrosense/v2_architecture.png', cap: 'v2 System architecture — unified pipeline from RGB-D acquisition to geo-referenced tree-level aggregation.' },
+      { src: 'research/agrosense/v1_architecture.png', cap: 'v1 System architecture — depth-gated filtering, YOLOv8n trunk detection, IBTA tracking, and height estimation pipeline.' },
+      { src: 'research/agrosense/v2_hardware.png', cap: 'Agrosense v2 — Upgraded hardware: ZED X stereo cameras, Jetson AGX Orin, RTK-GPS/IMU, touch display.' },
+      { src: 'research/agrosense/detection_result.png', cap: 'Real-time detection output — trunk bounding boxes with confidence scores under varying field lighting and occlusion.' },
+      { src: 'research/agrosense/visualization.png', cap: 'Geo-referenced orchard dashboard — per-tree canopy class, fruit count, and height overlaid on UAV orthomosaic.' },
+    ],
+    results: [
+      { num: '515%', lbl: 'Faster than manual\n(398 s vs. 2,446 s)' },
+      { num: '95.49%', lbl: 'Object counting accuracy\n(v2, avg. 3 sites)' },
+      { num: '96.8%', lbl: 'Sequence classification\naccuracy (v2)' },
+      { num: '0.837', lbl: 'Fruit detection mAP@0.5\n(RT-DETR)' },
+      { num: '3,696', lbl: 'Objects tracked\nacross 3 field sites' },
+      { num: '~85%', lbl: 'False positive reduction\npre-tracking filter' },
+    ],
+    links: [
+      { href: 'https://doi.org/10.1007/s11119-025-10268-8', label: 'Agrosense v1 · Precision Agriculture 2025', icon: DOC, cls: 'paper' },
+      { href: 'https://doi.org/10.1016/j.compag.2026.111797', label: 'Agrosense v2 · CEA 2026', icon: DOC, cls: 'paper' },
+      { href: 'https://github.com/Ariel0818/Agrosensev1-v2', label: 'GitHub', icon: GH, cls: '' },
+      { href: 'https://www.linkedin.com/posts/yiannis-ampatzidis-b63b4130_see-our-ai-enabled-agrosense-system-in-action-activity-7399586259934842880-LEhL/', label: 'Demo Video', icon: VID, cls: '' },
+    ]
+  },
+  r3: {
+    title: 'AI-Driven Yield Forecasting Pipeline: Real-Time Vision + Multivariate Time Series',
+    date: '2024 — 2025 · University of Florida · Published in Computers and Electronics in Agriculture',
+    tags: ['YOLOv8n', 'Object Detection', 'LSTM', 'TCN', 'GBM', 'Random Forest', 'MLR', 'Time Series', 'Edge AI', 'Scikit-learn', 'PyTorch'],
+    desc: `Designed and deployed a full-stack automated yield forecasting system for strawberry production — integrating real-time computer vision on edge hardware with a rigorous ML model benchmark for weekly yield prediction.<br><br><strong>Computer Vision Pipeline:</strong> Fine-tuned YOLOv8n on a custom 1,473-image dataset (3 classes: flower, immature fruit, mature fruit) collected via NVIDIA Jetson Nano + Arducam IMX477 in field conditions. Achieved 52 FPS real-time inference with mAP@0.5 of 0.91 for mature fruit detection — replacing manual field counting across 3 strawberry varieties and 11 weeks of data collection.<br><br><strong>ML Benchmark & Feature Engineering:</strong> Systematically evaluated 6 time-series models (MLR, VAR, GBM, Random Forest, LSTM, TCN) against 25 features (23 weather variables from FAWN + 2 vision-derived counts). Applied Recursive Feature Elimination (RFE) with cross-validation to identify the optimal 13–14 feature subset per variety — reducing dimensionality while improving generalization on a small dataset.<br><br><strong>Results:</strong> MLR outperformed deep learning models for 2 of 3 varieties (R²=0.633 and R²=0.908), demonstrating that on small, near-linear agricultural datasets, disciplined feature engineering and model selection beats model complexity. The system reduced reliance on manual labor and enabled data-driven harvest planning for supply chain optimization.`,
+    imgs: [
+      { src: 'research/strawberry_predict/fig1_workflow.png', cap: 'Fig. 1 — The workflow of the study from data collection to yield prediction for the upcoming week.' },
+      { src: 'research/strawberry_predict/fig3_detection.png', cap: 'Fig. 2 — YOLOv8n detection results under four different sunlight conditions. (a) Manually labeled bounding boxes serve as ground truth, and (b) YOLOv8 detection results with confidence scores.' },
+      { src: 'research/strawberry_predict/fig5_prediction.png', cap: 'Fig. 3 — Prediction (orange) and actual (blue) results for Sensation, Brilliance, and Medallion yields using MLR (a-c), RF (d-f), VAR (g-i), and GBM (j-k).' },
+    ],
+    results: [
+      { num: 'R²=0.908', lbl: 'Best yield prediction\n(Brilliance variety, MLR)' },
+      { num: '52 FPS', lbl: 'Real-time inference\nYOLOv8n on edge device' },
+      { num: '6 models', lbl: 'Systematically\nbenchmarked' },
+      { num: 'mAP 0.91', lbl: 'Mature fruit detection\n@IoU 0.5' },
+      { num: '25 features', lbl: 'Weather + vision inputs\nRFE-selected to 13–14' },
+    ],
+    links: [
+      { href: 'https://doi.org/10.1016/j.compag.2025.110212', label: 'Paper (CEA 2025)', icon: DOC, cls: 'paper' },
+    ]
+  }
+};
+
+function openModal(id) {
+  const d = modals[id];
+  const tags = d.tags.map(t => `<span class="rtag" style="font-size:0.72rem;padding:0.22rem 0.65rem">${t}</span>`).join('');
+  const imgs = d.imgs.length ? `
+    <div class="rmodal-section-title">Key Visuals</div>
+    <div class="rmodal-imgs${d.imgs.length===1?' single':''}">
+      ${d.imgs.map(i=>`<div><img src="${i.src}" class="rmodal-img" alt="${i.cap}"><div class="rmodal-img-caption">${i.cap}</div></div>`).join('')}
+    </div>` : '';
+  const results = d.results.length ? `
+    <div class="rmodal-section-title">Key Results</div>
+    <div class="rmodal-results" style="grid-template-columns:repeat(${Math.min(d.results.length,3)},1fr)">
+      ${d.results.map(r=>`<div class="rresult"><span class="rresult-num">${r.num}</span><div class="rresult-lbl">${r.lbl.replace(/\n/g,'<br>')}</div></div>`).join('')}
+    </div>` : '';
+  const links = `
+    <div class="rmodal-section-title">Links</div>
+    <div class="rmodal-links">
+      ${d.links.map(l=>`<a href="${l.href}" target="_blank" class="rmodal-link ${l.cls}">${l.icon}${l.label}</a>`).join('')}
+    </div>`;
+
+  document.getElementById('rmodal-box').innerHTML = `
+    <div class="rmodal-close"><button onclick="closeModal()">✕</button></div>
+    <div class="rmodal-body">
+      <div class="rmodal-title">${d.title}</div>
+      <div class="rmodal-date">${d.date}</div>
+      <div class="rmodal-tags">${tags}</div>
+      <div class="rmodal-section-title">Overview</div>
+      <div class="rmodal-desc">${d.desc}</div>
+      ${imgs}
+      ${results}
+      ${links}
+    </div>`;
+  document.getElementById('rmodal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('rmodal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeModal(); closeLb(); } });
+
+// ── PHOTO CARD HOVER ROTATION ──
+document.querySelectorAll('.photo-card').forEach(card => {
+  const imgs = card.querySelectorAll('.photo-card-imgs img');
+  const dots = card.querySelectorAll('.pdot');
+  if(imgs.length <= 1) return;
+  let timer = null, current = 0;
+  function showImg(n) {
+    imgs[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + imgs.length) % imgs.length;
+    imgs[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  card.addEventListener('mouseenter', () => {
+    timer = setInterval(() => showImg(current + 1), 900);
+  });
+  card.addEventListener('mouseleave', () => {
+    clearInterval(timer);
+    imgs[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = 0;
+    imgs[0].classList.add('active');
+    dots[0].classList.add('active');
+  });
+});
+
+// Lightbox
+function openLb(src, loc, cap) {
+  document.getElementById('lbimg').src = src;
+  document.getElementById('lbloc').textContent = loc;
+  document.getElementById('lbcap').textContent = cap || '';
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lb').addEventListener('click', e => { if(e.target===e.currentTarget) closeLb(); });
+</script>
+</body>
+</html>
